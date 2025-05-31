@@ -1,217 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-US">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Space Apps Challenge 2025</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>NASA Space Apps Challenge</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="NASA Space Apps Challenge" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://www.spaceappschallenge.org/" />
+<meta property="og:url" content="https://www.spaceappschallenge.org/" />
+<meta property="og:site_name" content="NASA Space Apps Challenge" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="NASA Space Apps Challenge" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"NASA Space Apps Challenge","name":"NASA Space Apps Challenge","url":"https://www.spaceappschallenge.org/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=5053af09e2841fd80cd8f01677ea1abd76e0fe57">
     <style>
-        /* Fontes e cores temáticas da NASA */
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
-        
-        :root {
-            --nasa-blue: #0B3D91;
-            --nasa-red: #FC3D21;
-            --space-black: #121212;
-            --star-white: #F5F5F5;
-            --accent-purple: #6A00F4;
-        }
-        
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--space-black);
-            color: var(--star-white);
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 2%),
-                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 2%);
-            background-size: 300% 300%;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            text-transform: uppercase;
-            color: var(--nasa-red);
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(252, 61, 33, 0.5);
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            color: var(--star-white);
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .intro {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .body-copy {
-            column-count: 2;
-            column-gap: 3rem;
-            margin-bottom: 4rem;
-        }
-        
-        @media (max-width: 768px) {
-            .body-copy {
-                column-count: 1;
-            }
-        }
-        
-        .stats-section {
-            text-align: center;
-            margin: 4rem 0;
-        }
-        
-        .stats-headline {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--nasa-blue);
-        }
-        
-        .stats-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-        
-        .stat-item {
-            margin: 1rem;
-        }
-        
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--nasa-red);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            color: var(--star-white);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .join-section {
-            background: linear-gradient(135deg, var(--nasa-blue), var(--accent-purple));
-            padding: 3rem;
-            border-radius: 10px;
-            text-align: center;
-            margin: 4rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .join-section h3 {
-            font-size: 2rem;
-            margin-top: 0;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--nasa-red);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(252, 61, 33, 0.3);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            margin: 3rem 0;
-        }
+      :root {
+        --nasa-blue: #0B3D91;
+        --nasa-red: #FC3D21;
+        --space-black: #121212;
+        --star-white: #F5F5F5;
+      }
+      
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+      }
+      
+      h1, h2, h3 {
+        color: var(--nasa-blue);
+      }
+      
+      a {
+        color: var(--nasa-red);
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      .nasa-header {
+        background-color: var(--space-black);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      
+      .nasa-title {
+        color: white;
+        font-size: 2.5rem;
+      }
+      
+      .nasa-subtitle {
+        color: var(--nasa-red);
+        font-size: 1.5rem;
+      }
+      
+      .stats-grid {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        margin: 2rem 0;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--nasa-red);
+      }
+      
+      .cta-section {
+        background-color: var(--nasa-blue);
+        color: white;
+        padding: 2rem;
+        border-radius: 5px;
+        margin: 2rem 0;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        background-color: var(--nasa-red);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 1rem;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>NASA SPACE APPS CHALLENGE 2025</h1>
-            <h2>Innovating for Earth and Space Exploration</h2>
-        </header>
-        
-        <section class="intro">
-            <p>Intro copy goes here. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </section>
-        
-        <section class="body-copy">
-            <p>Body copy goes here. Quis sundio cullesequi cus as quas aute officipsam sitatur aut vendit, apidebit, utem hicaerchic tota quis soluptur sed ut ut identem olluptati solorpo rrorum inclus doluptatur.</p>
-            
-            <p>Sundio cullesequi cus as quas aute officipsam sitatur aut vendit, apidebit, utem hicaerchic tota quis soluptur sed ut ut porrum, aut ese receped qui simus, fuga. Hicipsu turesequenosam, cum identem olluptati solorpo rrorum inclus doluptatur, optatur re poreici eniminvero debis illes sim doluptaque vellame ndipiroceae cus.</p>
-        </section>
-        
-        <section class="stats-section">
-            <h2 class="stats-headline">GLOBAL IMPACT</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">250+</div>
-                    <div class="stat-label">Locations</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">80+</div>
-                    <div class="stat-label">Host Countries</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Space Agencies</div>
-                </div>
-            </div>
-        </section>
-        
-        <hr>
-        
-        <section class="join-section">
-            <h3>JOIN US</h3>
-            <p>Call To Action copy goes here. Quis sundio cullesequi cus as quas aute officipsam sitatur aut vendit, apidebit, utem hicaerchic tota quis soluptur sed ut ut porrum.</p>
-            <button class="cta-button">REGISTER NOW</button>
-        </section>
-        
-        <footer>
-            <p>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton, Mindgrub, and SecondMuse.</p>
-            <p>For more information, visit <a href="https://www.spaceappschallenge.org" style="color: var(--nasa-red);">spaceappschallenge.org</a></p>
-        </footer>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <div class="nasa-header">
+        <h1 class="nasa-title">NASA SPACE APPS CHALLENGE</h1>
+        <h2 class="nasa-subtitle">The World's Largest Global Hackathon</h2>
+      </div>
+
+      <h2 id="what-is-nasa-space-apps">What is NASA Space Apps?</h2>
+      <p>NASA Space Apps Challenge is an international hackathon that engages thousands of citizens across the globe to use NASA's open data to create innovative solutions to challenges we face on Earth and in space.</p>
+      
+      <p>For 48 hours each year, participants from around the world come together at hundreds of simultaneous local events to solve challenges submitted by NASA experts. Teams of technologists, scientists, designers, entrepreneurs, artists, and others collaborate to answer some of the most pressing challenges on Earth and in space.</p>
+
+      <h2 id="why-participate">Why Participate?</h2>
+      <p>Space Apps provides a platform for problem solvers worldwide to:</p>
+      <ul>
+        <li>Work with NASA's open data to create solutions to real-world problems</li>
+        <li>Collaborate with a global community of innovators</li>
+        <li>Develop skills in coding, design, storytelling, and more</li>
+        <li>Showcase talents to NASA and space agency experts</li>
+        <li>Win awards and global recognition</li>
+      </ul>
+
+      <div class="stats-grid">
+        <div>
+          <div class="stat-number">250+</div>
+          <div>Locations</div>
+        </div>
+        <div>
+          <div class="stat-number">80+</div>
+          <div>Countries</div>
+        </div>
+        <div>
+          <div class="stat-number">10</div>
+          <div>Space Agencies</div>
+        </div>
+      </div>
+
+      <h2 id="2025-challenge-themes">2025 Challenge Themes</h2>
+      <p>Each year, NASA Space Apps focuses on key themes aligned with NASA's mission priorities. For 2025, challenges will include:</p>
+      <ol>
+        <li><strong>Earth & Climate</strong>: Using NASA data to understand and protect our home planet</li>
+        <li><strong>Space Exploration</strong>: Innovating for lunar, Martian and deep space missions</li>
+        <li><strong>Technology</strong>: Developing tools and systems to advance space science</li>
+        <li><strong>Human Health in Space</strong>: Solving health challenges for astronauts</li>
+      </ol>
+
+      <div class="cta-section">
+        <h2>Ready to Join the Challenge?</h2>
+        <p>The NASA Space Apps Challenge 2025 will take place on October 5-6. Registration opens in August.</p>
+        <a href="https://www.spaceappschallenge.org/register" class="cta-button">GET UPDATES</a>
+      </div>
+
+      <h2 id="how-it-works">How It Works</h2>
+      <p>Space Apps is a hybrid event with both in-person and virtual participation options:</p>
+      <ul>
+        <li><strong>Find a Local Event</strong>: Join one of hundreds of local events around the world</li>
+        <li><strong>Form a Team</strong>: Work solo or collaborate with others (teams of up to 6)</li>
+        <li><strong>Choose a Challenge</strong>: Select from NASA-proposed challenges across multiple themes</li>
+        <li><strong>Build Your Solution</strong>: Use NASA data and resources to create your project</li>
+        <li><strong>Submit Your Project</strong>: Present your solution before judges at your local event</li>
+      </ul>
+
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="https://www.spaceappschallenge.org/challenges">2025 Challenge Statements</a> (coming soon)</li>
+        <li><a href="https://data.nasa.gov">NASA Open Data Portal</a></li>
+        <li><a href="https://www.spaceappschallenge.org/resources">Participant Resources</a></li>
+        <li><a href="https://www.spaceappschallenge.org/faq">Frequently Asked Questions</a></li>
+      </ul>
+
+      <h2 id="partners">Global Partners</h2>
+      <p>NASA Space Apps is made possible through collaboration with:</p>
+      <ul>
+        <li>NASA Earth Science Division</li>
+        <li>Booz Allen Hamilton</li>
+        <li>Mindgrub</li>
+        <li>SecondMuse</li>
+        <li>International Space Agencies</li>
+      </ul>
+
+      <h2 id="contact">Contact Us</h2>
+      <p>Have questions about NASA Space Apps? <a href="mailto:spaceappschallenge@nasa.gov">Email our team</a> or connect with us on social media:</p>
+      <ul>
+        <li><a href="https://twitter.com/spaceapps">Twitter</a></li>
+        <li><a href="https://facebook.com/spaceappschallenge">Facebook</a></li>
+        <li><a href="https://instagram.com/spaceappschallenge">Instagram</a></li>
+      </ul>
+
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        <p>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton, Mindgrub, and SecondMuse.</p>
+        <p>For more information, visit <a href="https://www.spaceappschallenge.org">spaceappschallenge.org</a></p>
+      </div>
+      
     </div>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
 </html>

@@ -1,198 +1,188 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASA Space Apps Challenge</title>
+  <style>
+    :root {
+      --nasa-blue: #0B3D91;
+      --space-black: #121212;
+      --star-white: #F5F5F5;
+    }
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>NASA Space Apps Challenge</title>
-<meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="NASA Space Apps Challenge" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://www.spaceappschallenge.org/" />
-<meta property="og:url" content="https://www.spaceappschallenge.org/" />
-<meta property="og:site_name" content="NASA Space Apps Challenge" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="NASA Space Apps Challenge" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"NASA Space Apps Challenge","name":"NASA Space Apps Challenge","url":"https://www.spaceappschallenge.org/"}</script>
-<!-- End Jekyll SEO tag -->
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=5053af09e2841fd80cd8f01677ea1abd76e0fe57">
-    <style>
-      :root {
-        --nasa-blue: #0B3D91;
-        --nasa-red: #FC3D21;
-        --space-black: #121212;
-        --star-white: #F5F5F5;
-      }
-      
-      body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        color: #333;
-        line-height: 1.6;
-      }
-      
-      h1, h2, h3 {
-        color: var(--nasa-blue);
-      }
-      
-      a {
-        color: var(--nasa-red);
-        text-decoration: none;
-      }
-      
-      a:hover {
-        text-decoration: underline;
-      }
-      
-      .nasa-header {
-        background-color: var(--space-black);
-        color: white;
-        padding: 2rem 0;
-        margin-bottom: 2rem;
-      }
-      
-      .nasa-title {
-        color: white;
-        font-size: 2.5rem;
-      }
-      
-      .nasa-subtitle {
-        color: var(--nasa-red);
-        font-size: 1.5rem;
-      }
-      
-      .stats-grid {
-        display: flex;
-        justify-content: space-around;
-        text-align: center;
-        margin: 2rem 0;
-      }
-      
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: var(--nasa-red);
-      }
-      
-      .cta-section {
-        background-color: var(--nasa-blue);
-        color: white;
-        padding: 2rem;
-        border-radius: 5px;
-        margin: 2rem 0;
-      }
-      
-      .cta-button {
-        display: inline-block;
-        background-color: var(--nasa-red);
-        color: white;
-        padding: 0.8rem 1.5rem;
-        border-radius: 4px;
-        font-weight: bold;
-        margin-top: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      
-      <div class="nasa-header">
-        <h1 class="nasa-title">NASA SPACE APPS CHALLENGE</h1>
-        <h2 class="nasa-subtitle">The World's Largest Global Hackathon</h2>
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .nasa-header {
+      background-color: var(--space-black);
+      color: var(--star-white);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .logo-img {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--nasa-blue);
+    }
+
+    a {
+      color: var(--nasa-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--nasa-blue);
+    }
+
+    .cta-section {
+      background-color: var(--nasa-blue);
+      color: white;
+      padding: 2rem;
+      border-radius: 5px;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #333;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 3rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="nasa-header">
+    <!-- 🔽 Insira o link da logo aqui -->
+    <img src="LINK_DA_IMAGEM" alt="NASA Space Apps Logo" class="logo-img">
+    <h1>NASA SPACE APPS CHALLENGE</h1>
+    <h2>The World's Largest Global Hackathon</h2>
+  </div>
+
+  <div class="container">
+    <h2>What is NASA Space Apps?</h2>
+    <p>NASA Space Apps Challenge is an international hackathon that engages thousands of citizens across the globe to use NASA's open data to create innovative solutions to challenges we face on Earth and in space.</p>
+
+    <p>For 48 hours each year, participants from around the world come together at hundreds of simultaneous local events to solve challenges submitted by NASA experts. Teams of technologists, scientists, designers, entrepreneurs, artists, and others collaborate to answer some of the most pressing challenges on Earth and in space.</p>
+
+    <h2>Why Participate?</h2>
+    <ul>
+      <li>Work with NASA's open data to create solutions to real-world problems</li>
+      <li>Collaborate with a global community of innovators</li>
+      <li>Develop skills in coding, design, storytelling, and more</li>
+      <li>Showcase talents to NASA and space agency experts</li>
+      <li>Win awards and global recognition</li>
+    </ul>
+
+    <div class="stats-grid">
+      <div>
+        <div class="stat-number">250+</div>
+        <div>Locations</div>
       </div>
-
-      <h2 id="what-is-nasa-space-apps">What is NASA Space Apps?</h2>
-      <p>NASA Space Apps Challenge is an international hackathon that engages thousands of citizens across the globe to use NASA's open data to create innovative solutions to challenges we face on Earth and in space.</p>
-      
-      <p>For 48 hours each year, participants from around the world come together at hundreds of simultaneous local events to solve challenges submitted by NASA experts. Teams of technologists, scientists, designers, entrepreneurs, artists, and others collaborate to answer some of the most pressing challenges on Earth and in space.</p>
-
-      <h2 id="why-participate">Why Participate?</h2>
-      <p>Space Apps provides a platform for problem solvers worldwide to:</p>
-      <ul>
-        <li>Work with NASA's open data to create solutions to real-world problems</li>
-        <li>Collaborate with a global community of innovators</li>
-        <li>Develop skills in coding, design, storytelling, and more</li>
-        <li>Showcase talents to NASA and space agency experts</li>
-        <li>Win awards and global recognition</li>
-      </ul>
-
-      <div class="stats-grid">
-        <div>
-          <div class="stat-number">250+</div>
-          <div>Locations</div>
-        </div>
-        <div>
-          <div class="stat-number">80+</div>
-          <div>Countries</div>
-        </div>
-        <div>
-          <div class="stat-number">10</div>
-          <div>Space Agencies</div>
-        </div>
+      <div>
+        <div class="stat-number">80+</div>
+        <div>Countries</div>
       </div>
-
-      <h2 id="2025-challenge-themes">2025 Challenge Themes</h2>
-      <p>Each year, NASA Space Apps focuses on key themes aligned with NASA's mission priorities. For 2025, challenges will include:</p>
-      <ol>
-        <li><strong>Earth & Climate</strong>: Using NASA data to understand and protect our home planet</li>
-        <li><strong>Space Exploration</strong>: Innovating for lunar, Martian and deep space missions</li>
-        <li><strong>Technology</strong>: Developing tools and systems to advance space science</li>
-        <li><strong>Human Health in Space</strong>: Solving health challenges for astronauts</li>
-      </ol>
-
-      <div class="cta-section">
-        <h2>Ready to Join the Challenge?</h2>
-        <p>The NASA Space Apps Challenge 2025 will take place on October 5-6. Registration opens in August.</p>
-        <a href="https://www.spaceappschallenge.org/register" class="cta-button">GET UPDATES</a>
+      <div>
+        <div class="stat-number">10</div>
+        <div>Space Agencies</div>
       </div>
-
-      <h2 id="how-it-works">How It Works</h2>
-      <p>Space Apps is a hybrid event with both in-person and virtual participation options:</p>
-      <ul>
-        <li><strong>Find a Local Event</strong>: Join one of hundreds of local events around the world</li>
-        <li><strong>Form a Team</strong>: Work solo or collaborate with others (teams of up to 6)</li>
-        <li><strong>Choose a Challenge</strong>: Select from NASA-proposed challenges across multiple themes</li>
-        <li><strong>Build Your Solution</strong>: Use NASA data and resources to create your project</li>
-        <li><strong>Submit Your Project</strong>: Present your solution before judges at your local event</li>
-      </ul>
-
-      <h2 id="resources">Resources</h2>
-      <ul>
-        <li><a href="https://www.spaceappschallenge.org/challenges">2025 Challenge Statements</a> (coming soon)</li>
-        <li><a href="https://data.nasa.gov">NASA Open Data Portal</a></li>
-        <li><a href="https://www.spaceappschallenge.org/resources">Participant Resources</a></li>
-        <li><a href="https://www.spaceappschallenge.org/faq">Frequently Asked Questions</a></li>
-      </ul>
-
-      <h2 id="partners">Global Partners</h2>
-      <p>NASA Space Apps is made possible through collaboration with:</p>
-      <ul>
-        <li>NASA Earth Science Division</li>
-        <li>Booz Allen Hamilton</li>
-        <li>Mindgrub</li>
-        <li>SecondMuse</li>
-        <li>International Space Agencies</li>
-      </ul>
-
-      <h2 id="contact">Contact Us</h2>
-      <p>Have questions about NASA Space Apps? <a href="mailto:spaceappschallenge@nasa.gov">Email our team</a> or connect with us on social media:</p>
-      <ul>
-        <li><a href="https://twitter.com/spaceapps">Twitter</a></li>
-        <li><a href="https://facebook.com/spaceappschallenge">Facebook</a></li>
-        <li><a href="https://instagram.com/spaceappschallenge">Instagram</a></li>
-      </ul>
-
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-        <p>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton, Mindgrub, and SecondMuse.</p>
-        <p>For more information, visit <a href="https://www.spaceappschallenge.org">spaceappschallenge.org</a></p>
-      </div>
-      
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-  </body>
+
+    <h2>2025 Challenge Themes</h2>
+    <ol>
+      <li><strong>Earth & Climate</strong>: Using NASA data to understand and protect our home planet</li>
+      <li><strong>Space Exploration</strong>: Innovating for lunar, Martian and deep space missions</li>
+      <li><strong>Technology</strong>: Developing tools and systems to advance space science</li>
+      <li><strong>Human Health in Space</strong>: Solving health challenges for astronauts</li>
+    </ol>
+
+    <div class="cta-section">
+      <h2>Ready to Join the Challenge?</h2>
+      <p>The NASA Space Apps Challenge 2025 will take place on October 5–6. Registration opens in August.</p>
+      <a href="https://www.spaceappschallenge.org/register" class="cta-button">GET UPDATES</a>
+    </div>
+
+    <h2>How It Works</h2>
+    <ul>
+      <li><strong>Find a Local Event</strong>: Join one of hundreds of local events around the world</li>
+      <li><strong>Form a Team</strong>: Work solo or collaborate with others (teams of up to 6)</li>
+      <li><strong>Choose a Challenge</strong>: Select from NASA-proposed challenges across multiple themes</li>
+      <li><strong>Build Your Solution</strong>: Use NASA data and resources to create your project</li>
+      <li><strong>Submit Your Project</strong>: Present your solution before judges at your local event</li>
+    </ul>
+
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://www.spaceappschallenge.org/challenges">2025 Challenge Statements</a> (coming soon)</li>
+      <li><a href="https://data.nasa.gov">NASA Open Data Portal</a></li>
+      <li><a href="https://www.spaceappschallenge.org/resources">Participant Resources</a></li>
+      <li><a href="https://www.spaceappschallenge.org/faq">Frequently Asked Questions</a></li>
+    </ul>
+
+    <h2>Global Partners</h2>
+    <ul>
+      <li>NASA Earth Science Division</li>
+      <li>Booz Allen Hamilton</li>
+      <li>Mindgrub</li>
+      <li>SecondMuse</li>
+      <li>International Space Agencies</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+    <p>Have questions about NASA Space Apps? <a href="mailto:spaceappschallenge@nasa.gov">Email our team</a> or connect with us on social media:</p>
+    <ul>
+      <li><a href="https://twitter.com/spaceapps">Twitter</a></li>
+      <li><a href="https://facebook.com/spaceappschallenge">Facebook</a></li>
+      <li><a href="https://instagram.com/spaceappschallenge">Instagram</a></li>
+    </ul>
+
+    <footer>
+      <p>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton, Mindgrub, and SecondMuse.</p>
+      <p>For more information, visit <a href="https://www.spaceappschallenge.org">spaceappschallenge.org</a></p>
+    </footer>
+  </div>
+</body>
 </html>

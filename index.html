@@ -19,12 +19,16 @@
         margin: 0;
         padding: 0;
         background-color: white;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
       
       .container-lg {
         max-width: 1200px;
         margin: 0 auto;
         padding: 2rem;
+        flex: 1;
       }
       
       .nasa-header {
@@ -103,11 +107,49 @@
         padding-left: 20px;
       }
       
-      /* Estilo para a imagem à direita */
       .right-image {
         float: right;
         margin: 0 0 1rem 2rem;
         width: 300px;
+      }
+      
+      /* Blue Footer Styles */
+      .page-footer {
+        background-color: var(--nasa-blue);
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+      }
+      
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .footer-content p {
+        margin: 0.5rem 0;
+        color: white;
+        text-align: center;
+      }
+      
+      @media (max-width: 768px) {
+        .right-image {
+          float: none;
+          display: block;
+          margin: 0 auto 1.5rem;
+          width: 80%;
+        }
+        
+        .stats-grid {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
       }
     </style>
   </head>
@@ -213,7 +255,8 @@
         </div>
       </div>
     </div>
-     <!-- Novo rodapé azul -->
+
+    <!-- Blue Footer -->
     <footer class="page-footer">
       <div class="footer-content">
         <p>© 2025 NASA Space Apps Challenge - Santa Cruz das Palmeiras. Todos os direitos reservados.</p>

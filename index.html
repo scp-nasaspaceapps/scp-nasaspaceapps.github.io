@@ -138,6 +138,73 @@
         text-align: center;
       }
       
+      /* Estilos para a seção de patrocinadores */
+      .sponsors-grid {
+        margin: 2rem 0;
+      }
+      
+      .sponsor-tier {
+        margin-bottom: 2.5rem;
+      }
+      
+      .sponsor-tier h3 {
+        color: var(--nasa-blue);
+        border-bottom: 2px solid var(--nasa-blue);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .sponsor-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+      
+      .sponsor-item {
+        text-align: center;
+        width: 200px;
+      }
+      
+      .sponsor-logo {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+      
+      .sponsor-logo:hover {
+        transform: scale(1.05);
+      }
+      
+      .gold {
+        border: 3px solid #FFD700;
+        padding: 10px;
+      }
+      
+      .silver {
+        border: 3px solid #C0C0C0;
+        padding: 8px;
+      }
+      
+      .bronze {
+        border: 3px solid #CD7F32;
+        padding: 6px;
+      }
+      
+      .sponsor-name {
+        font-weight: 500;
+        color: var(--nasa-blue);
+      }
+      
+      .sponsor-cta {
+        background-color: var(--space-black);
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 2rem;
+      }
+      
       @media (max-width: 768px) {
         .right-image {
           float: none;
@@ -149,6 +216,14 @@
         .stats-grid {
           flex-direction: column;
           gap: 1.5rem;
+        }
+        
+        .sponsor-logos {
+          gap: 1rem;
+        }
+        
+        .sponsor-item {
+          width: 150px;
         }
       }
     </style>
@@ -199,6 +274,60 @@
         <li><strong>Technology</strong>: Developing tools and systems to advance space science</li>
         <li><strong>Human Health in Space</strong>: Solving health challenges for astronauts</li>
       </ol>
+
+      <!-- Seção de Patrocinadores -->
+      <h2 id="our-sponsors">Nossos Patrocinadores</h2>
+      <div class="sponsors-grid">
+        <!-- Gold Sponsors -->
+        <div class="sponsor-tier">
+          <h3>Patrocinadores Ouro</h3>
+          <div class="sponsor-logos">
+            <div class="sponsor-item">
+              <img src="caminho/para/logo1.png" alt="Logo Patrocinador Ouro 1" class="sponsor-logo gold">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="caminho/para/logo2.png" alt="Logo Patrocinador Ouro 2" class="sponsor-logo gold">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Silver Sponsors -->
+        <div class="sponsor-tier">
+          <h3>Patrocinadores Prata</h3>
+          <div class="sponsor-logos">
+            <div class="sponsor-item">
+              <img src="caminho/para/logo3.png" alt="Logo Patrocinador Prata 1" class="sponsor-logo silver">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="caminho/para/logo4.png" alt="Logo Patrocinador Prata 2" class="sponsor-logo silver">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bronze Sponsors -->
+        <div class="sponsor-tier">
+          <h3>Patrocinadores Bronze</h3>
+          <div class="sponsor-logos">
+            <div class="sponsor-item">
+              <img src="caminho/para/logo5.png" alt="Logo Patrocinador Bronze 1" class="sponsor-logo bronze">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+            <div class="sponsor-item">
+              <img src="caminho/para/logo6.png" alt="Logo Patrocinador Bronze 2" class="sponsor-logo bronze">
+              <p class="sponsor-name">Nome do Patrocinador</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA para novos patrocinadores -->
+      <div class="sponsor-cta">
+        <p>Interessado em se tornar um patrocinador? <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com">Entre em contato conosco</a> para conhecer nossos pacotes de patrocínio.</p>
+      </div>
 
       <div class="cta-section">
         <h2>Ready to Join the Challenge?</h2>

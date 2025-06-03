@@ -45,6 +45,12 @@
         position: relative;
         overflow: hidden;
       }
+
+      /* ADICIONE AQUI O NOVO CÓDIGO */
+      .nasa-header h1,
+      .nasa-header h2 {
+        color: white;
+      }
       
       .nasa-header::before {
         content: "";
@@ -566,7 +572,7 @@
   </head>
   <body>
     <div class="nasa-header">
-      <img src="https://i.imgur.com/AoQu0lT.png" alt="NASA Space Apps Logo" class="logo-img">
+      <img src="https://i.imgur.com/RzTL3GW.png" alt="NASA Space Apps Logo" class="logo-img">
       <h1>NASA SPACE APPS CHALLENGE SCP</h1>
       <h2>The World's Largest Global Hackathon</h2>
     </div>
@@ -676,7 +682,7 @@
         
         <div class="donation-content">
           <div class="pix-qr-container">
-            <img src="https://i.imgur.com/tSmvI6c.jpeg">
+            <img src="https://i.imgur.com/tSmvI6c.jpeg" class="pix-qr">
           </div>
           <div class="pix-info">
             <p><strong>Chave Pix:</strong></p>
@@ -847,27 +853,6 @@
         this.classList.toggle('expanded');
         const iframe = this.querySelector('iframe');
         iframe.style.height = iframe.style.height === '500px' ? '300px' : '500px';
-      });
-      
-      // Animação para os números de estatísticas
-      document.addEventListener('DOMContentLoaded', function() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(number => {
-          const target = +number.innerText.replace(/\D/g, '');
-          const increment = target / 100;
-          let current = 0;
-          
-          const timer = setInterval(() => {
-            current += increment;
-            if (current > target) {
-              number.innerText = number.innerText.replace(/\d+/, target.toLocaleString());
-              clearInterval(timer);
-              return;
-            }
-            number.innerText = number.innerText.replace(/\d+/, Math.ceil(current).toLocaleString());
-          }, 20);
-        });
       });
     </script>
   </body>

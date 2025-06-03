@@ -253,6 +253,58 @@
         background-color: #050525;
       }
       
+      /* ESTILOS PARA SEÇÃO DE DOAÇÃO */
+      .donation-section {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2.5rem 0;
+        text-align: center;
+        border: 1px solid #eaeaea;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      
+      .donation-section h2 {
+        color: var(--nasa-blue);
+        margin-top: 0;
+      }
+      
+      .donation-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+      
+      .pix-qr {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background: white;
+        transition: transform 0.3s ease;
+      }
+      
+      .pix-qr:hover {
+        transform: scale(1.03);
+      }
+      
+      .pix-info {
+        text-align: left;
+        max-width: 300px;
+      }
+      
+      .pix-info p {
+        margin: 0.8rem 0;
+      }
+      
+      .pix-info strong {
+        color: var(--nasa-blue);
+      }
+      
       @media (max-width: 768px) {
         .right-image {
           float: none;
@@ -272,6 +324,16 @@
         
         .sponsor-item {
           width: 150px;
+        }
+        
+        /* Responsividade para seção de doação */
+        .donation-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        
+        .pix-info {
+          text-align: center;
         }
       }
     </style>
@@ -381,6 +443,22 @@
         <p>Interessado em se tornar um patrocinador? <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com">Entre em contato conosco</a> para conhecer nossos pacotes de patrocínio.</p>
       </div>
 
+      <!-- SEÇÃO DE DOAÇÃO ADICIONADA -->
+      <section class="donation-section">
+        <h2>Apoie Nosso Projeto 🚀</h2>
+        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento!</p>
+        <div class="donation-content">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX:nasaspaceapps.scpalmeiras@gmail.com" alt="QR Code Pix" class="pix-qr">
+          <div class="pix-info">
+            <p><strong>Chave Pix:</strong>nasaspaceapps.scpalmeiras@gmail.com</p>
+            <p><strong>Tipo:</strong> E-mail</p>
+            <p><strong>Instituição:</strong> Banco BTG pactual</p>
+            <p><strong>Beneficiário:</strong> NASA Space Apps SCP </p>
+            <p>Qualquer valor ajuda a manter nosso evento!</p>
+          </div>
+        </div>
+      </section>
+
       <div class="cta-section">
         <h2>Ready to Join the Challenge?</h2>
         <p>The NASA Space Apps Challenge 2025 will take place on October 4-5. Registration opens in August.</p>
@@ -462,4 +540,7 @@
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

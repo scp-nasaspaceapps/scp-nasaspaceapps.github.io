@@ -1,16 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NASA Space Apps Challenge - Santa Cruz das Palmeiras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
       :root {
         --nasa-blue: #0c0c3c;
         --space-black: #F5F5F5;
         --star-white: #F5F5F5;
+        --donation-green: #0a7a4a;
+        --map-blue: #2a5b8c;
       }
       
       body {
@@ -33,16 +36,33 @@
       }
       
       .nasa-header {
-        background-color: var(--space-black);
+        background-color: var(--nasa-blue);
+        background-image: linear-gradient(to bottom, #0c0c3c, #1a1a5a);
         color: var(--star-white);
         text-align: center;
         padding: 2rem 1rem;
         margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .nasa-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="30" r="0.8" fill="white" opacity="0.7"/><circle cx="80" cy="40" r="0.7" fill="white" opacity="0.6"/><circle cx="30" cy="70" r="1.2" fill="white" opacity="0.4"/><circle cx="70" cy="60" r="0.9" fill="white" opacity="0.3"/></svg>');
+        background-size: 300px 300px;
+        opacity: 0.2;
       }
       
       .logo-img {
         max-width: 200px;
         margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
       }
       
       h1, h2, h3 {
@@ -78,6 +98,7 @@
         border-radius: 5px;
         margin: 2rem 0;
         text-align: center;
+        box-shadow: 0 4px 15px rgba(12, 12, 60, 0.2);
       }
       
       .cta-button {
@@ -88,6 +109,13 @@
         border-radius: 4px;
         font-weight: bold;
         margin-top: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .cta-button:hover {
+        background-color: #555;
+        transform: translateY(-2px);
+        text-decoration: none;
       }
       
       footer {
@@ -112,6 +140,8 @@
         float: right;
         margin: 0 0 1rem 2rem;
         width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       }
       
       /* Blue Footer Styles */
@@ -153,6 +183,7 @@
         border-bottom: 2px solid var(--nasa-blue);
         padding-bottom: 0.5rem;
         margin-bottom: 1.5rem;
+        text-align: center;
       }
       
       .sponsor-logos {
@@ -172,6 +203,7 @@
         height: auto;
         margin-bottom: 0.5rem;
         transition: transform 0.3s ease;
+        border-radius: 8px;
       }
       
       .sponsor-logo:hover {
@@ -181,16 +213,19 @@
       .gold {
         border: 3px solid #FFD700;
         padding: 10px;
+        background: linear-gradient(to bottom, #fff, #fffdf0);
       }
       
       .silver {
         border: 3px solid #C0C0C0;
         padding: 8px;
+        background: linear-gradient(to bottom, #fff, #f8f8f8);
       }
       
       .bronze {
         border: 3px solid #CD7F32;
         padding: 6px;
+        background: linear-gradient(to bottom, #fff, #fef6ec);
       }
       
       .sponsor-name {
@@ -204,6 +239,7 @@
         text-align: center;
         border-radius: 5px;
         margin-top: 2rem;
+        border-left: 4px solid var(--nasa-blue);
       }
       
       /* Estilos para o formulário de contato */
@@ -231,6 +267,14 @@
         font-family: inherit;
         font-size: 1rem;
         margin-bottom: 1rem;
+        transition: border-color 0.3s;
+      }
+      
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--nasa-blue);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(12, 12, 60, 0.1);
       }
       
       .contact-form textarea {
@@ -255,18 +299,46 @@
       
       /* ESTILOS PARA SEÇÃO DE DOAÇÃO */
       .donation-section {
-        background-color: #f8f9fa;
-        padding: 2rem;
-        border-radius: 8px;
-        margin: 2.5rem 0;
+        background: linear-gradient(to bottom right, #f8f9fa, #eef2f6);
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin: 3rem 0;
         text-align: center;
-        border: 1px solid #eaeaea;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border: 1px solid #e1e6ed;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .donation-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(to right, var(--nasa-blue), var(--donation-green));
       }
       
       .donation-section h2 {
         color: var(--nasa-blue);
         margin-top: 0;
+        font-size: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .donation-section h2::after {
+        content: "🚀";
+        position: absolute;
+        right: -40px;
+        top: 0;
+        animation: rocket 2s infinite ease-in-out;
+      }
+      
+      @keyframes rocket {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
       }
       
       .donation-content {
@@ -274,22 +346,29 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 3rem;
         margin-top: 1.5rem;
+      }
+      
+      .pix-qr-container {
+        position: relative;
+        padding: 15px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .pix-qr-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       }
       
       .pix-qr {
         width: 200px;
         height: 200px;
-        border: 1px solid #ddd;
         border-radius: 8px;
-        padding: 10px;
-        background: white;
-        transition: transform 0.3s ease;
-      }
-      
-      .pix-qr:hover {
-        transform: scale(1.03);
+        display: block;
       }
       
       .pix-info {
@@ -298,11 +377,135 @@
       }
       
       .pix-info p {
-        margin: 0.8rem 0;
+        margin: 1rem 0;
+        font-size: 1.1rem;
       }
       
-      .pix-info strong {
-        color: var(--nasa-blue);
+      .pix-key {
+        display: inline-block;
+        background: #e6f7f0;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border-left: 4px solid var(--donation-green);
+        font-family: monospace;
+        font-size: 1.1rem;
+        color: #0a7a4a;
+        word-break: break-all;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      
+      .pix-key:hover {
+        background: #d1f2e6;
+      }
+      
+      .copy-icon {
+        margin-left: 8px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+      
+      .donation-callout {
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(10, 122, 74, 0.1);
+        border-radius: 8px;
+        border-left: 4px solid var(--donation-green);
+      }
+      
+      .donation-stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+      
+      .donation-stat {
+        text-align: center;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        min-width: 120px;
+      }
+      
+      .donation-number {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--donation-green);
+      }
+      
+      /* Estilos para o mapa */
+      .map-container {
+        margin-top: 15px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        max-width: 600px;
+      }
+      
+      .map-iframe {
+        width: 100%;
+        height: 300px;
+        border: none;
+        display: block;
+      }
+      
+      .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(12, 12, 60, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      
+      .map-container:hover .map-overlay {
+        opacity: 1;
+      }
+      
+      .map-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      }
+      
+      .map-info {
+        background: var(--nasa-blue);
+        color: white;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .map-title {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      
+      .map-link {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      
+      .map-link i {
+        margin-left: 5px;
+      }
+      
+      .map-link:hover {
+        text-decoration: underline;
       }
       
       @media (max-width: 768px) {
@@ -329,11 +532,34 @@
         /* Responsividade para seção de doação */
         .donation-content {
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.5rem;
         }
         
         .pix-info {
           text-align: center;
+          max-width: 100%;
+        }
+        
+        .donation-stats {
+          flex-wrap: wrap;
+        }
+        
+        .donation-section {
+          padding: 1.5rem;
+        }
+        
+        .map-container {
+          max-width: 100%;
+        }
+        
+        .map-iframe {
+          height: 250px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .map-iframe {
+          height: 200px;
         }
       }
     </style>
@@ -434,14 +660,6 @@
               <img src="https://i.imgur.com/GfeIeWV.jpeg" alt="Logo Patrocinador Bronze 2" class="sponsor-logo bronze">
               <p class="sponsor-name">Nome do Patrocinador</p>
             </div>
-            <div class="sponsor-item">
-              <img src="https://i.imgur.com/GfeIeWV.jpeg" alt="Logo Patrocinador Bronze 3" class="sponsor-logo bronze">
-              <p class="sponsor-name">Nome do Patrocinador</p>
-            </div>
-            <div class="sponsor-item">
-              <img src="https://i.imgur.com/GfeIeWV.jpeg" alt="Logo Patrocinador Bronze 4" class="sponsor-logo bronze">
-              <p class="sponsor-name">Nome do Patrocinador</p>
-            </div>
           </div>
         </div>
       </div>
@@ -451,20 +669,25 @@
         <p>Interessado em se tornar um patrocinador? <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com">Entre em contato conosco</a> para conhecer nossos pacotes de patrocínio.</p>
       </div>
 
-      <!-- SEÇÃO DE DOAÇÃO ADICIONADA -->
+      <!-- SEÇÃO DE DOAÇÃO -->
       <section class="donation-section">
-        <h2>🚀 Apoie Nosso Projeto - NASA Space Apps Challenge SCP</h2>
-        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento!</p>
+        <h2>Apoie Nosso Projeto 🚀</h2>
+        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento e promover a inovação em nossa comunidade!</p>
+        
         <div class="donation-content">
-          <img src="https://i.imgur.com/HbRlIKT.jpeg">
+          <div class="pix-qr-container">
+            <img src="https://i.imgur.com/tSmvI6c.jpeg">
+          </div>
           <div class="pix-info">
-            <p><strong>Chave Pix: </strong> nasaspaceapps.scpalmeiras@gmail.com</p>
-            <p><strong>Titular:</strong> Local Lead - Luis Cláudio De Vita</p>
-            <p><strong>Instituição:</strong> Banco BTG pactual</p>
-            <p><strong>Beneficiário:</strong> NASA Space Apps SCP </p>
-            <p>Qualquer valor ajuda a manter nosso evento!</p>
-
-          <div class="donation-callout">
+            <p><strong>Chave Pix:</strong></p>
+            <div class="pix-key" id="pixKey" onclick="copyToClipboard()">
+              nasaspaceapps.scpalmeiras@gmail.com
+              <span class="copy-icon">📋 Clique para copiar</span>
+            </div>
+            <p><strong>Tipo:</strong> E-mail</p>
+            <p><strong>Beneficiário:</strong> NASA Space Apps SCP</p>
+            
+            <div class="donation-callout">
               <p>⭐ Sua doação ajuda a cobrir:</p>
               <ul>
                 <li>Infraestrutura do evento</li>
@@ -473,7 +696,21 @@
                 <li>Lanches e coffee breaks</li>
               </ul>
             </div>
-            
+          </div>
+        </div>
+        
+        <div class="donation-stats">
+          <div class="donation-stat">
+            <div class="donation-number">R$ 0.00</div>
+            <div>Arrecadados</div>
+          </div>
+          <div class="donation-stat">
+            <div class="donation-number">0</div>
+            <div>Doadores</div>
+          </div>
+          <div class="donation-stat">
+            <div class="donation-number">R$ 10.000</div>
+            <div>Meta</div>
           </div>
         </div>
       </section>
@@ -542,11 +779,37 @@
           <p>Contact your Local Lead, Luis Claudio De Vita:</p>
           <ul>
             <li>Email: <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com">nasaspaceapps.scpalmeiras@gmail.com</a></li>
-            <li>Event location: Escola Comunitária/anglo<br>
+            <li>
+              Event location: 
+              <a href="#" class="address-link">
+                Escola Comunitária/anglo<br>
                 Av. Constantino Stoco, 550 - Santa Cecília<br>
                 Santa Cruz das Palmeiras - SP<br>
-                13650-000</li>
+                13650-000
+              </a>
+            </li>
           </ul>
+          
+          <!-- Seção do Mapa Google -->
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3703.9038549808083!2d-47.257284724721266!3d-21.822645380032835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b7e3a1362ab2a1%3A0x8ca20e7ee8dc4643!2sEscola%20Comunit%C3%A1ria%2FAnglo%20Santa%20Cruz%20Das%20Palmeiras!5e0!3m2!1spt-BR!2sbr!4v1748986514412!5m2!1spt-BR!2sbr" 
+              class="map-iframe" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay">
+              <i class="fas fa-expand-alt"></i> Clique para ver o mapa completo
+            </div>
+            <div class="map-info">
+              <div class="map-title">Escola Comunitária/Anglo Santa Cruz Das Palmeiras</div>
+              <a href="https://www.google.com/maps/place/Escola+Comunit%C3%A1ria%2FAnglo+Santa+Cruz+Das+Palmeiras/@-21.8226454,-47.2572847,17z/data=!3m1!4b1!4m6!3m5!1s0x94b7e3a1362ab2a1:0x8ca20e7ee8dc4643!8m2!3d-21.8226454!4d-47.2547098!16s%2Fg%2F1tfr1jj1?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D" 
+                 target="_blank" class="map-link">
+                Ver no Google Maps <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -559,7 +822,53 @@
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
+    <script>
+      // Função para copiar a chave Pix
+      function copyToClipboard() {
+        const pixKey = document.getElementById('pixKey');
+        const text = 'nasaspaceapps.scpalmeiras@gmail.com';
+        
+        navigator.clipboard.writeText(text).then(() => {
+          const originalHTML = pixKey.innerHTML;
+          pixKey.innerHTML = 'Chave copiada com sucesso! ✅';
+          pixKey.style.backgroundColor = '#d4edda';
+          
+          setTimeout(() => {
+            pixKey.innerHTML = originalHTML;
+            pixKey.style.backgroundColor = '#e6f7f0';
+          }, 2000);
+        }).catch(err => {
+          console.error('Erro ao copiar: ', err);
+        });
+      }
+      
+      // Expandir o mapa ao clicar
+      document.querySelector('.map-container').addEventListener('click', function() {
+        this.classList.toggle('expanded');
+        const iframe = this.querySelector('iframe');
+        iframe.style.height = iframe.style.height === '500px' ? '300px' : '500px';
+      });
+      
+      // Animação para os números de estatísticas
+      document.addEventListener('DOMContentLoaded', function() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(number => {
+          const target = +number.innerText.replace(/\D/g, '');
+          const increment = target / 100;
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current > target) {
+              number.innerText = number.innerText.replace(/\d+/, target.toLocaleString());
+              clearInterval(timer);
+              return;
+            }
+            number.innerText = number.innerText.replace(/\d+/, Math.ceil(current).toLocaleString());
+          }, 20);
+        });
+      });
+    </script>
   </body>
 </html>

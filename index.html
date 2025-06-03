@@ -443,19 +443,33 @@
         <p>Interessado em se tornar um patrocinador? <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com">Entre em contato conosco</a> para conhecer nossos pacotes de patrocínio.</p>
       </div>
 
-      <!-- SEÇÃO DE DOAÇÃO ADICIONADA -->
+      <   <!-- SEÇÃO DE DOAÇÃO ADICIONADA -->
       <section class="donation-section">
         <h2>Apoie Nosso Projeto 🚀</h2>
-        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento!</p>
+        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento e promover a inovação em nossa comunidade!</p>
+        
         <div class="donation-content">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX:nasaspaceapps.scpalmeiras@gmail.com" alt="QR Code Pix" class="pix-qr">
-          <div class="pix-info">
-            <p><strong>Chave Pix:</strong>nasaspaceapps.scpalmeiras@gmail.com</p>
-            <p><strong>Tipo:</strong> E-mail</p>
-            <p><strong>Instituição:</strong> Banco BTG pactual</p>
-            <p><strong>Beneficiário:</strong> NASA Space Apps SCP </p>
-            <p>Qualquer valor ajuda a manter nosso evento!</p>
+          <div class="pix-qr-container">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX:nasaspaceapps.scpalmeiras@gmail.com" alt="QR Code Pix" class="pix-qr">
           </div>
+          <div class="pix-info">
+            <p><strong>Chave Pix:</strong></p>
+            <div class="pix-key" id="pixKey" onclick="copyToClipboard()">
+              nasaspaceapps.scpalmeiras@gmail.com
+              <span class="copy-icon">📋 Clique para copiar</span>
+            </div>
+            <p><strong>Tipo:</strong> E-mail</p>
+            <p><strong>Beneficiário:</strong> NASA Space Apps SCP</p>
+            
+            <div class="donation-callout">
+              <p>⭐ Sua doação ajuda a cobrir:</p>
+              <ul>
+                <li>Infraestrutura do evento</li>
+                <li>Materiais para participantes</li>
+                <li>Prêmios para projetos vencedores</li>
+                <li>Lanches e coffee breaks</li>
+              </ul>
+            </div>
         </div>
       </section>
 

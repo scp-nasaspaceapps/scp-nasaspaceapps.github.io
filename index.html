@@ -44,12 +44,79 @@
         margin-bottom: 2rem;
         position: relative;
         overflow: hidden;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
-      /* ADICIONE AQUI O NOVO CÓDIGO */
+      /* Foguete animado */
+      .rocket {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        font-size: 48px;
+        animation: launch 8s infinite linear;
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      /* Animação do foguete */
+      @keyframes launch {
+        0% {
+          transform: translateX(-200px) translateY(20px) rotate(30deg);
+          opacity: 0;
+        }
+        20% {
+          transform: translateX(25%) translateY(-40px) rotate(0deg);
+          opacity: 1;
+        }
+        40% {
+          transform: translateX(50%) translateY(-100px) rotate(-10deg);
+        }
+        60% {
+          transform: translateX(75%) translateY(-40px) rotate(0deg);
+        }
+        80% {
+          transform: translateX(100%) translateY(-100px) rotate(10deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(120%) translateY(-200px) rotate(30deg);
+          opacity: 0;
+        }
+      }
+
+      /* Efeito de estrelas */
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        pointer-events: none;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 3s infinite ease-in-out;
+      }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+
       .nasa-header h1,
       .nasa-header h2 {
         color: white;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
       }
       
       .nasa-header::before {
@@ -68,7 +135,7 @@
         max-width: 200px;
         margin-bottom: 1rem;
         position: relative;
-        z-index: 1;
+        z-index: 2;
       }
       
       h1, h2, h3 {
@@ -561,6 +628,11 @@
         .map-iframe {
           height: 250px;
         }
+
+        /* Ajustes para o foguete em dispositivos móveis */
+        .rocket {
+          font-size: 36px;
+        }
       }
       
       @media (max-width: 480px) {
@@ -572,6 +644,12 @@
   </head>
   <body>
     <div class="nasa-header">
+      <!-- Foguete animado -->
+      <div class="rocket">🚀</div>
+      
+      <!-- Efeito de estrelas -->
+      <div class="stars" id="starsContainer"></div>
+      
       <img src="https://i.imgur.com/RzTL3GW.png" alt="NASA Space Apps Logo" class="logo-img">
       <h1>NASA SPACE APPS CHALLENGE SCP</h1>
       <h2>The World's Largest Global Hackathon</h2>
@@ -677,8 +755,8 @@
 
       <!-- SEÇÃO DE DOAÇÃO -->
       <section class="donation-section">
-        <h2>Apoie Nosso Projeto 🚀</h2>
-        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge com uma doação via Pix. Todo apoio é importante para realizarmos este evento e promover a inovação em nossa comunidade!</p>
+        <h2>Apoie Nosso Projeto - Nasa Space Apps Challenge 🚀</h2>
+        <p>Você pode ajudar nosso projeto do NASA Space Apps Challenge Santa Cruz das Palmeiras com uma doação via Pix. Todo apoio é importante para realizarmos este evento e promover a inovação em nossa comunidade!</p>
         
         <div class="donation-content">
           <div class="pix-qr-container">
@@ -810,7 +888,7 @@
             </div>
             <div class="map-info">
               <div class="map-title">Escola Comunitária/Anglo Santa Cruz Das Palmeiras</div>
-              <a href="https://www.google.com/maps/place/Escola+Comunit%C3%A1ria%2FAnglo+Santa+Cruz+Das+Palmeiras/@-21.8226454,-47.2572847,17z/data=!3m1!4b1!4m6!3m5!1s0x94b7e3a1362ab2a1:0x8ca20e7ee8dc4643!8m2!3d-21.8226454!4d-47.2547098!16s%2Fg%2F1tfr1jj1?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D" 
+              <a href="https://www.google.com/maps/place/Escola+Comunit%C3%A1ria%2FAnglo+Santa+Cruz+Das+Palmeiras/@-21.8226454,-47.2572847,17z/data=!3m1!4b1!4m6!3m5!1s0x94b7e3a1362ab2a1:0x8ca20e7ee8dc4643!8m2!3d-21.8226454!4d-47.2547098!16s%2Fg%2F1tfr1jj1?entry=ttu&g_ep=EgoyMDI1MDUyOC.4wIKXMDSoASAFQAw%3D%3D" 
                  target="_blank" class="map-link">
                 Ver no Google Maps <i class="fas fa-external-link-alt"></i>
               </a>
@@ -854,6 +932,48 @@
         const iframe = this.querySelector('iframe');
         iframe.style.height = iframe.style.height === '500px' ? '300px' : '500px';
       });
+      
+      // Gerar estrelas para o cabeçalho
+      const starsContainer = document.getElementById('starsContainer');
+      const starCount = 100;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Posição e tamanho aleatórios
+        const size = Math.random() * 3;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const delay = Math.random() * 5;
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${posX}%`;
+        star.style.top = `${posY}%`;
+        star.style.animationDelay = `${delay}s`;
+        
+        starsContainer.appendChild(star);
+      }
+      
+      // Adicionar múltiplos foguetes
+      setInterval(() => {
+        if (Math.random() > 0.7) { // 30% de chance de criar novo foguete
+          const rocket = document.createElement('div');
+          rocket.classList.add('rocket');
+          rocket.textContent = '🚀';
+          rocket.style.left = '0';
+          rocket.style.top = `${Math.random() * 100}px`;
+          rocket.style.fontSize = `${24 + Math.random() * 24}px`;
+          
+          document.querySelector('.nasa-header').appendChild(rocket);
+          
+          // Remover após a animação
+          setTimeout(() => {
+            rocket.remove();
+          }, 8000);
+        }
+      }, 3000);
     </script>
   </body>
 </html>

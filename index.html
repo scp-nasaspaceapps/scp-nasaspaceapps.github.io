@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Space Apps Challenge - Foguete Interativo</title>
+    <title>NASA Space Apps Challenge - Foguete Suave</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -25,6 +25,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container-lg {
@@ -51,7 +52,7 @@
             cursor: default;
         }
 
-        /* Foguete com rotação dinâmica */
+        /* Foguete com rotação dinâmica e movimento suavizado */
         .rocket {
             position: absolute;
             font-size: 48px;
@@ -59,12 +60,12 @@
             opacity: 0;
             transform: translate(-50%, -50%) rotate(0deg);
             pointer-events: none;
-            transition: opacity 0.3s ease;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
             will-change: transform;
+            transition: opacity 0.5s ease;
         }
         
-        /* Efeito de propulsão */
+        /* Efeito de propulsão suavizado */
         .rocket::after {
             content: "";
             position: absolute;
@@ -81,8 +82,8 @@
         }
 
         @keyframes rocketFire {
-            0% { height: 30px; opacity: 0.7; }
-            100% { height: 50px; opacity: 1; }
+            0% { height: 30px; opacity: 0.7; transform: scale(0.9); }
+            100% { height: 50px; opacity: 1; transform: scale(1.1); }
         }
 
         /* Efeito de estrelas */
@@ -651,11 +652,22 @@
             opacity: 0.8;
             transition: opacity 0.5s;
         }
+        
+        /* Indicador de movimento suave */
+        .smooth-indicator {
+            position: absolute;
+            bottom: 50px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            z-index: 2;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
     <div class="nasa-header" id="nasaHeader">
-        <!-- Foguete com rotação dinâmica -->
+        <!-- Foguete com movimento suavizado -->
         <div id="rocket" class="rocket">🚀</div>
         
         <!-- Efeito de estrelas -->
@@ -665,7 +677,8 @@
         <h1>NASA SPACE APPS CHALLENGE SCP</h1>
         <h2>The World's Largest Global Hackathon</h2>
         
-        <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete!</div>
+        <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete suavemente!</div>
+        <div class="smooth-indicator">Movimento Suave Ativado</div>
     </div>
 
     <div class="container-lg px-3 my-5 markdown-body">
@@ -969,19 +982,33 @@
             starsContainer.appendChild(star);
         }
         
-        // Sistema de direção do foguete
+        // Sistema de direção do foguete com suavização
         const rocket = document.getElementById('rocket');
         const header = document.getElementById('nasaHeader');
         const instructions = document.getElementById('instructions');
         
-        // Variáveis para controle de movimento
+        // Variáveis para suavização
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let targetAngle = 90; // Começa apontando para baixo
+        let currentAngle = 90;
         let prevX = null;
         let prevY = null;
         let isFirstMove = true;
         
+        // Fatores de suavização (quanto maior, mais lento)
+        const POSITION_SMOOTHING = 0.15;
+        const ROTATION_SMOOTHING = 0.1;
+        
         // Posição inicial central
-        rocket.style.left = '50%';
-        rocket.style.top = '50%';
+        targetX = header.offsetWidth / 2;
+        targetY = header.offsetHeight / 2;
+        currentX = targetX;
+        currentY = targetY;
+        rocket.style.left = `${currentX}px`;
+        rocket.style.top = `${currentY}px`;
         rocket.style.opacity = '0.9';
         
         // Evento para mover o foguete dentro do cabeçalho
@@ -1005,32 +1032,56 @@
             const maxY = rect.height - rocketSize / 2;
             
             // Calcular posição dentro dos limites
-            const posX = Math.max(minX, Math.min(x, maxX));
-            const posY = Math.max(minY, Math.min(y, maxY));
+            targetX = Math.max(minX, Math.min(x, maxX));
+            targetY = Math.max(minY, Math.min(y, maxY));
             
             // Calcular direção do movimento
             if (prevX !== null && prevY !== null) {
-                const deltaX = posX - prevX;
-                const deltaY = posY - prevY;
+                const deltaX = targetX - prevX;
+                const deltaY = targetY - prevY;
                 
                 // Calcular ângulo de rotação (em radianos)
                 const angleRad = Math.atan2(deltaY, deltaX);
                 
                 // Converter para graus e ajustar para o foguete (90° extra)
-                let angleDeg = angleRad * 180 / Math.PI + 90;
-                
-                // Aplicar a rotação ao foguete
-                rocket.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg)`;
+                targetAngle = angleRad * 180 / Math.PI + 90;
             }
             
-            // Atualizar posição
-            rocket.style.left = `${posX}px`;
-            rocket.style.top = `${posY}px`;
-            
             // Atualizar posição anterior
-            prevX = posX;
-            prevY = posY;
+            prevX = targetX;
+            prevY = targetY;
         });
+        
+        // Função para atualizar suavemente o foguete
+        function updateRocket() {
+            // Suavizar posição
+            currentX += (targetX - currentX) * POSITION_SMOOTHING;
+            currentY += (targetY - currentY) * POSITION_SMOOTHING;
+            
+            // Suavizar rotação
+            let angleDiff = targetAngle - currentAngle;
+            
+            // Ajustar para o caminho mais curto na rotação
+            if (angleDiff > 180) angleDiff -= 360;
+            if (angleDiff < -180) angleDiff += 360;
+            
+            currentAngle += angleDiff * ROTATION_SMOOTHING;
+            
+            // Normalizar o ângulo entre 0 e 360
+            if (currentAngle > 360) currentAngle -= 360;
+            if (currentAngle < 0) currentAngle += 360;
+            
+            // Atualizar foguete
+            rocket.style.left = `${currentX}px`;
+            rocket.style.top = `${currentY}px`;
+            rocket.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+            
+            // Continuar animação
+            requestAnimationFrame(updateRocket);
+        }
+        
+        // Iniciar animação
+        updateRocket();
         
         // Ocultar foguete quando o mouse sair do cabeçalho
         header.addEventListener('mouseleave', () => {
@@ -1042,7 +1093,6 @@
         // Mostrar foguete quando o mouse entrar no cabeçalho
         header.addEventListener('mouseenter', () => {
             rocket.style.opacity = '0.9';
-            rocket.style.transform = `translate(-50%, -50%) rotate(90deg)`;
         });
         
         // Resetar instruções quando o mouse sai e volta

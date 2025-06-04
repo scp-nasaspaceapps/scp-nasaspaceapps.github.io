@@ -709,6 +709,203 @@
             background: rgba(0, 20, 60, 0.3);
             border-radius: 5px;
         }
+
+        * Estilos anteriores permanecem os mesmos */
+        
+        /* NOVA SEÇÃO DE VOLUNTÁRIOS */
+        .volunteers-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .volunteers-section h2 {
+            color: var(--nasa-blue);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .volunteers-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--nasa-blue);
+            border-radius: 2px;
+        }
+        
+        .volunteers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .volunteer-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            text-align: center;
+        }
+        
+        .volunteer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        
+        .volunteer-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .volunteer-card:hover .volunteer-photo {
+            transform: scale(1.05);
+            filter: brightness(1.05);
+        }
+        
+        .volunteer-info {
+            padding: 1.5rem 1rem;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
+        
+        .volunteer-name {
+            color: var(--nasa-blue);
+            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .volunteer-role {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .volunteer-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--nasa-blue);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: #050525;
+            transform: translateY(-3px);
+        }
+        
+        .volunteer-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--nasa-blue), var(--plasma-purple));
+            z-index: 1;
+        }
+        
+        /* Efeito de fundo ao passar o mouse */
+        .volunteer-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(12, 12, 60, 0.05) 0%, rgba(119, 0, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        
+        .volunteer-card:hover::after {
+            opacity: 1;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .volunteers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 2rem;
+            }
+            
+            .volunteer-photo {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .volunteers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .volunteer-photo {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .volunteers-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+        
+        /* Botão para adicionar mais voluntários */
+        .add-volunteer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .add-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--nasa-blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--nasa-blue);
+            box-shadow: 0 4px 15px rgba(12, 12, 60, 0.2);
+        }
+        
+        .add-button:hover {
+            background: white;
+            color: var(--nasa-blue);
+            transform: translateY(-3px);
+        }
+
     </style>
 </head>
 <body>
@@ -965,6 +1162,102 @@
                             target="_blank" class="map-link">
                             Ver no Google Maps <i class="fas fa-external-link-alt"></i>
                         </a>
+                    </div>
+                    <div class="volunteers-section">
+        <h2>Nossos Incríveis Voluntários</h2>
+        <div class="volunteers-grid">
+            <!-- Voluntário 1 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Ana Silva" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Ana Silva</h3>
+                    <p class="volunteer-role">Coordenadora Geral</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voluntário 2 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Carlos Mendes" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Carlos Mendes</h3>
+                    <p class="volunteer-role">Mentor Técnico</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voluntário 3 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Juliana Costa" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Juliana Costa</h3>
+                    <p class="volunteer-role">Designer de Eventos</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voluntário 4 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Ricardo Oliveira" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Ricardo Oliveira</h3>
+                    <p class="volunteer-role">Suporte Técnico</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voluntário 5 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Fernanda Santos" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Fernanda Santos</h3>
+                    <p class="volunteer-role">Comunicação</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voluntário 6 -->
+            <div class="volunteer-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                     alt="Marcos Almeida" class="volunteer-photo">
+                <div class="volunteer-info">
+                    <h3 class="volunteer-name">Marcos Almeida</h3>
+                    <p class="volunteer-role">Patrocínios</p>
+                    <div class="volunteer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="add-volunteer">
+            <a href="#" class="add-button">
+                <i class="fas fa-plus-circle"></i>
+                Seja um Voluntário
+            </a>
+                         </div>
                     </div>
                 </div>
             </div>

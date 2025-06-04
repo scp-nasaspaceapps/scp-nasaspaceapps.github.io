@@ -102,7 +102,7 @@
         /* Partículas de propulsão */
         .particles {
             position: absolute;
-            z-index: 2; /* Abaixo do foguete */
+            z-index: 1; /* Abaixo do foguete */
             pointer-events: none;
         }
         
@@ -1102,13 +1102,17 @@
             prevY = targetY;
         });
         
-        // Função para criar partículas de propulsão
+        // Função para criar partículas de propulsão - CORRIGIDA
         function createParticles() {
             // Remover partículas antigas
             particlesContainer.innerHTML = '';
             
             // Criar novas partículas
             const particleCount = 15;
+            
+            // Calcular a direção do bocal (oposta à direção do foguete)
+            const nozzleAngle = (currentAngle - 180) * Math.PI / 180;
+            
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
@@ -1118,18 +1122,18 @@
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
-                // Posição inicial no bocal do foguete
+                // Posição inicial no bocal do foguete (centro)
                 particle.style.left = '50%';
-                particle.style.bottom = '0';
+                particle.style.top = '50%';
                 
-                // Direção aleatória
-                const angle = currentAngle - 90 + (Math.random() * 60 - 30);
-                const angleRad = angle * Math.PI / 180;
+                // Direção das partículas: oposta ao movimento do foguete
+                // com variação aleatória para efeito mais natural
+                const angle = nozzleAngle + (Math.random() * 0.5 - 0.25);
                 const distance = 30 + Math.random() * 70;
                 
-                // Trajetória
-                const tx = Math.cos(angleRad) * distance;
-                const ty = Math.sin(angleRad) * distance;
+                // Trajetória (direção contrária ao movimento do foguete)
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
                 
                 particle.style.setProperty('--tx', `${tx}px`);
                 particle.style.setProperty('--ty', `${ty}px`);
@@ -1169,7 +1173,6 @@
             // Atualizar partículas
             particlesContainer.style.left = `${currentX}px`;
             particlesContainer.style.top = `${currentY}px`;
-            particlesContainer.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
             
             // Criar novas partículas periodicamente
             if (Math.random() > 0.7) {

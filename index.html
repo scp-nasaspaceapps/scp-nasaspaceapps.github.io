@@ -731,6 +731,127 @@
             background: rgba(0, 20, 60, 0.3);
             border-radius: 5px;
         }
+
+        /* ... (o restante do CSS permanece igual) ... */
+
+        /* NOVOS ESTILOS PARA A SEÇÃO DE PATROCÍNIO */
+        .sponsorship-section {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .sponsorship-title {
+            color: var(--nasa-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .sponsorship-title::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--plasma-blue), var(--plasma-purple));
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .sponsorship-plans {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sponsorship-plans:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .sponsorship-plans img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sponsorship-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(12, 12, 60, 0.8), rgba(12, 12, 60, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            text-align: center;
+        }
+
+        .sponsorship-plans:hover .sponsorship-overlay {
+            opacity: 1;
+        }
+
+        .sponsorship-cta {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .sponsorship-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--plasma-blue), var(--plasma-purple));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sponsorship-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .sponsorship-contact {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            max-width: 500px;
+        }
+
+        .sponsorship-email {
+            color: #00ccff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .sponsorship-title {
+                font-size: 1.7rem;
+            }
+
+            .sponsorship-overlay h3 {
+                font-size: 1.3rem;
+            }
+
+            .sponsorship-cta {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -801,55 +922,27 @@
         </ol>
 
         <!-- Seção de Patrocinadores -->
-        <h2 id="our-sponsors">Nossos Patrocinadores</h2>
-        <div class="sponsors-grid">
-            <!-- Gold Sponsors -->
-            <div class="sponsor-tier">
-                <h3>Patrocinadores Ouro</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/2mtG3UB.png" alt="Logo Patrocinador Ouro 1"
-                            class="sponsor-logo gold">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/2mtG3UB.png" alt="Logo Patrocinador Ouro 2"
-                            class="sponsor-logo gold">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
-                    </div>
-                </div>
-            </div>
+        <!-- ... (o restante do corpo permanece igual até a seção de patrocinadores) ... -->
 
-            <!-- Silver Sponsors -->
-            <div class="sponsor-tier">
-                <h3>Patrocinadores Prata</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/Gi9h11e.png" alt="Logo Patrocinador Prata 1"
-                            class="sponsor-logo silver">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
-                    </div>
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/Gi9h11e.png" alt="Logo Patrocinador Prata 2"
-                            class="sponsor-logo silver">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Substitua a seção de patrocinadores original por esta nova -->
+        <div class="sponsorship-section">
+            <h2 class="sponsorship-title">Sponsorship - Plans</h2>
+            <div class="sponsorship-plans">
+                <img src="https://i.imgur.com/MdYyRtF.png" alt="Planos de Patrocínio NASA Space Apps">
+                <div class="sponsorship-overlay">
+                    <h3>Seja um Patrocinador da NASA Space Apps Challenge!</h3>
+                    <p>Nossos planos de patrocínio oferecem oportunidades exclusivas para sua marca se conectar com
+                        inovadores e entusiastas da tecnologia espacial.</p>
 
-            <!-- Bronze Sponsors -->
-            <div class="sponsor-tier">
-                <h3>Patrocinadores Bronze</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/GfeIeWV.jpeg" alt="Logo Patrocinador Bronze 1"
-                            class="sponsor-logo bronze">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
+                    <div class="sponsorship-contact">
+                        <p>Entre em contato para mais informações:</p>
+                        <p class="sponsorship-email">nasaspaceapps.scpalmeiras@gmail.com</p>
                     </div>
-                    <div class="sponsor-item">
-                        <img src="https://i.imgur.com/GfeIeWV.jpeg" alt="Logo Patrocinador Bronze 2"
-                            class="sponsor-logo bronze">
-                        <p class="sponsor-name">Nome do Patrocinador</p>
+
+                    <div class="sponsorship-cta">
+                        <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com" class="sponsorship-button">
+                            Seja um Patrocinador
+                        </a>
                     </div>
                 </div>
             </div>

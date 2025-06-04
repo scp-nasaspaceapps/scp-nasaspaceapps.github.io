@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Space Apps Challenge - Foguete Suave</title>
+    <title>NASA Space Apps Challenge - Foguete Espacial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,6 +12,8 @@
             --star-white: #F5F5F5;
             --donation-green: #0a7a4a;
             --map-blue: #2a5b8c;
+            --plasma-blue: #00aaff;
+            --plasma-purple: #7700ff;
         }
         
         body {
@@ -56,8 +57,8 @@
         .rocket {
             position: absolute;
             font-size: 48px;
-            z-index: 1;
-            opacity: 0;
+            z-index: 3; /* Garante que fique acima das partículas */
+            opacity: 0.9; /* Visível por padrão */
             transform: translate(-50%, -50%) rotate(0deg);
             pointer-events: none;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
@@ -65,25 +66,63 @@
             transition: opacity 0.5s ease;
         }
         
-        /* Efeito de propulsão suavizado */
+        /* Efeito de propulsão espacial */
         .rocket::after {
             content: "";
             position: absolute;
-            bottom: -35px;
+            bottom: -40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 40px;
-            background: radial-gradient(circle, #ff7700 0%, #ff0000 70%, transparent 100%);
+            width: 10px;
+            height: 80px;
+            background: linear-gradient(to top, 
+                transparent, 
+                var(--plasma-blue) 20%, 
+                var(--plasma-purple) 50%, 
+                transparent 100%);
             border-radius: 50%;
-            animation: rocketFire 0.3s infinite alternate;
-            filter: blur(3px);
             opacity: 0.8;
+            filter: blur(3px);
+            animation: spaceThrust 0.8s infinite alternate;
         }
 
-        @keyframes rocketFire {
-            0% { height: 30px; opacity: 0.7; transform: scale(0.9); }
-            100% { height: 50px; opacity: 1; transform: scale(1.1); }
+        @keyframes spaceThrust {
+            0% { 
+                height: 70px; 
+                opacity: 0.7; 
+                transform: translateX(-50%) scale(0.9);
+            }
+            100% { 
+                height: 100px; 
+                opacity: 1; 
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        /* Partículas de propulsão */
+        .particles {
+            position: absolute;
+            z-index: 2; /* Abaixo do foguete */
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--plasma-blue);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleDrift linear forwards;
+        }
+        
+        @keyframes particleDrift {
+            0% {
+                opacity: 0.8;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.1);
+            }
         }
 
         /* Efeito de estrelas */
@@ -653,22 +692,30 @@
             transition: opacity 0.5s;
         }
         
-        /* Indicador de movimento suave */
-        .smooth-indicator {
+        /* Explicação científica */
+        .science-note {
             position: absolute;
             bottom: 50px;
-            right: 20px;
-            color: rgba(255, 255, 255, 0.7);
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(200, 220, 255, 0.7);
             font-size: 12px;
             z-index: 2;
-            opacity: 0.6;
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 5px 10px;
+            background: rgba(0, 20, 60, 0.3);
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="nasa-header" id="nasaHeader">
-        <!-- Foguete com movimento suavizado -->
+        <!-- Foguete com propulsão espacial realista -->
         <div id="rocket" class="rocket">🚀</div>
+        <div class="particles" id="particlesContainer"></div>
         
         <!-- Efeito de estrelas -->
         <div class="stars" id="starsContainer"></div>
@@ -677,8 +724,8 @@
         <h1>NASA SPACE APPS CHALLENGE SCP</h1>
         <h2>The World's Largest Global Hackathon</h2>
         
-        <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete suavemente!</div>
-        <div class="smooth-indicator">Movimento Suave Ativado</div>
+        <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete</div>
+        <div class="science-note">Propulsão realista: jato de plasma no vácuo espacial</div>
     </div>
 
     <div class="container-lg px-3 my-5 markdown-body">
@@ -961,7 +1008,7 @@
         
         // Gerar estrelas para o cabeçalho
         const starsContainer = document.getElementById('starsContainer');
-        const starCount = 100;
+        const starCount = 150;
         
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
@@ -984,6 +1031,7 @@
         
         // Sistema de direção do foguete com suavização
         const rocket = document.getElementById('rocket');
+        const particlesContainer = document.getElementById('particlesContainer');
         const header = document.getElementById('nasaHeader');
         const instructions = document.getElementById('instructions');
         
@@ -1007,6 +1055,8 @@
         targetY = header.offsetHeight / 2;
         currentX = targetX;
         currentY = targetY;
+        
+        // Posicionar o foguete no centro
         rocket.style.left = `${currentX}px`;
         rocket.style.top = `${currentY}px`;
         rocket.style.opacity = '0.9';
@@ -1052,6 +1102,46 @@
             prevY = targetY;
         });
         
+        // Função para criar partículas de propulsão
+        function createParticles() {
+            // Remover partículas antigas
+            particlesContainer.innerHTML = '';
+            
+            // Criar novas partículas
+            const particleCount = 15;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamanho aleatório
+                const size = 1 + Math.random() * 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posição inicial no bocal do foguete
+                particle.style.left = '50%';
+                particle.style.bottom = '0';
+                
+                // Direção aleatória
+                const angle = currentAngle - 90 + (Math.random() * 60 - 30);
+                const angleRad = angle * Math.PI / 180;
+                const distance = 30 + Math.random() * 70;
+                
+                // Trajetória
+                const tx = Math.cos(angleRad) * distance;
+                const ty = Math.sin(angleRad) * distance;
+                
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                
+                // Duração da animação
+                const duration = 0.5 + Math.random() * 1.0;
+                particle.style.animation = `particleDrift ${duration}s linear forwards`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
         // Função para atualizar suavemente o foguete
         function updateRocket() {
             // Suavizar posição
@@ -1076,6 +1166,16 @@
             rocket.style.top = `${currentY}px`;
             rocket.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
             
+            // Atualizar partículas
+            particlesContainer.style.left = `${currentX}px`;
+            particlesContainer.style.top = `${currentY}px`;
+            particlesContainer.style.transform = `translate(-50%, -50%) rotate(${currentAngle}deg)`;
+            
+            // Criar novas partículas periodicamente
+            if (Math.random() > 0.7) {
+                createParticles();
+            }
+            
             // Continuar animação
             requestAnimationFrame(updateRocket);
         }
@@ -1086,6 +1186,7 @@
         // Ocultar foguete quando o mouse sair do cabeçalho
         header.addEventListener('mouseleave', () => {
             rocket.style.opacity = '0';
+            particlesContainer.style.opacity = '0';
             prevX = null;
             prevY = null;
         });
@@ -1093,6 +1194,7 @@
         // Mostrar foguete quando o mouse entrar no cabeçalho
         header.addEventListener('mouseenter', () => {
             rocket.style.opacity = '0.9';
+            particlesContainer.style.opacity = '1';
         });
         
         // Resetar instruções quando o mouse sai e volta
@@ -1103,6 +1205,12 @@
                     instructions.style.opacity = '0';
                 }, 3000);
             }
+        });
+        
+        // Inicializar foguete visível
+        window.addEventListener('load', () => {
+            rocket.style.opacity = '0.9';
+            particlesContainer.style.opacity = '1';
         });
     </script>
 </body>

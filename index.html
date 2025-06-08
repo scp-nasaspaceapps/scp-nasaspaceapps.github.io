@@ -735,6 +735,116 @@
         /* ... (o restante do CSS permanece igual) ... */
 
         /* NOVOS ESTILOS PARA A SEÇÃO DE PATROCÍNIO */
+
+/* NOVOS ESTILOS PARA A SEÇÃO DESTACADA */
+        .funding-highlight {
+            background: linear-gradient(135deg, var(--highlight-blue), var(--nasa-blue));
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #FFD700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .funding-highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .funding-highlight h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .funding-highlight h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--plasma-blue), var(--plasma-purple));
+        }
+
+        .funding-highlight ul {
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .funding-highlight li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .funding-highlight li::before {
+            content: "•";
+            color: var(--plasma-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 1.4rem;
+        }
+
+        .funding-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .funding-logo {
+            height: 50px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .funding-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .funding-decoration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+      
+        @media (max-width: 768px) {
+            .funding-highlight {
+                padding: 12px 15px;
+            }
+            
+            .funding-highlight h3 {
+                font-size: 1.5rem;
+            }
+            
+            .funding-logos {
+                gap: 20px;
+            }
+            
+            .funding-logo {
+                height: 40px;
+            }
+        }
+
         .sponsorship-section {
             margin: 3rem 0;
             text-align: center;
@@ -1025,10 +1135,14 @@
             <li><a href="https://www.spaceappschallenge.org/resources/-faq/">Frequently Asked Questions</a></li>
         </ul>
 
-        <ul>
-            <li>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton,
-                Mindgrub, and SecondMuse.</li>    
-        </ul>
+          <!-- Seção destacada de financiamento -->
+        <div class="funding-highlight">
+            <i class="fas fa-hand-holding-usd funding-decoration"></i>
+            <div class="funding-highlight-content">
+                <p><strong>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton,
+                Mindgrub, and SecondMuse.</strong></p>
+            </div>
+        </div>
 
         <h2 id="contact">Contact Us</h2>
         <p>Have questions about NASA Space Apps? <a href="mailto:spaceappschallenge@nasa.gov">Email our team</a> or

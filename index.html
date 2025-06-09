@@ -641,6 +641,66 @@
             text-decoration: underline;
         }
 
+        @media (max-width: 768px) {
+            .right-image {
+                float: none;
+                display: block;
+                margin: 0 auto 1.5rem;
+                width: 80%;
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .sponsor-logos {
+                gap: 1rem;
+            }
+
+            .sponsor-item {
+                width: 150px;
+            }
+
+            /* Responsividade para seção de doação */
+            .donation-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .pix-info {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .donation-stats {
+                flex-wrap: wrap;
+            }
+
+            .donation-section {
+                padding: 1.5rem;
+            }
+
+            .map-container {
+                max-width: 100%;
+            }
+
+            .map-iframe {
+                height: 250px;
+            }
+
+            /* Ajustes para o foguete em dispositivos móveis */
+            .rocket {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-iframe {
+                height: 200px;
+            }
+        }
+
         /* Instruções para o usuário */
         .instructions {
             position: absolute;
@@ -672,6 +732,8 @@
             background: rgba(0, 20, 60, 0.3);
             border-radius: 5px;
         }
+
+        /* ... (o restante do CSS permanece igual) ... */
 
         /* NOVOS ESTILOS PARA A SEÇÃO DE PATROCÍNIO */
         .sponsorship-section {
@@ -778,406 +840,17 @@
             font-size: 1.1rem;
         }
 
-        /* CORREÇÃO PARA A SEÇÃO DE DESTAQUE */
-        .funding-highlight {
-            background: linear-gradient(135deg, #0c0c3c, #1a3a8f);
-            color: white; /* Garantir que o texto seja branco */
-            padding: 25px;
-            border-radius: 12px;
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border-left: 5px solid #FFD700;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .funding-highlight:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .funding-highlight-content p {
-            color: white; /* Forçar cor branca no texto */
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin: 0 0 15px 0;
-        }
-
-        .funding-highlight strong {
-            color: #FFD700; /* Destaque em dourado */
-        }
-
-        .funding-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .funding-logo {
-            height: 40px;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-
-        .funding-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .funding-decoration {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2.5rem;
-            opacity: 0.2;
-            transform: rotate(15deg);
-            color: white;
-        }
-
-        /* ESTILOS PARA A NOVA SEÇÃO DE CONTATO */
-        .contact-card {
-            background: linear-gradient(to bottom right, #f8f9fa, #eef2f6);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            border-left: 5px solid var(--nasa-blue);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .contact-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .contact-header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--nasa-blue), transparent);
-        }
-        
-        .contact-icon {
-            background: var(--nasa-blue);
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-right: 25px;
-            box-shadow: 0 5px 15px rgba(12, 12, 60, 0.3);
-        }
-        
-        .contact-title {
-            color: var(--nasa-blue);
-            font-size: 1.8rem;
-            margin: 0;
-            font-weight: 700;
-        }
-        
-        .contact-subtitle {
-            color: #666;
-            font-size: 1.1rem;
-            margin-top: 8px;
-            font-weight: 500;
-        }
-        
-        .contact-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 3px solid var(--plasma-blue);
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-        
-        .contact-item-title {
-            display: flex;
-            align-items: center;
-            color: var(--nasa-blue);
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .contact-item-title i {
-            margin-right: 12px;
-            font-size: 24px;
-            color: var(--plasma-blue);
-        }
-        
-        .contact-info {
-            padding-left: 36px;
-        }
-        
-        .contact-email {
-            color: var(--nasa-blue);
-            font-weight: 500;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin: 12px 0;
-            padding: 10px 20px;
-            background: rgba(12, 12, 60, 0.05);
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        
-        .contact-email:hover {
-            background: rgba(12, 12, 60, 0.1);
-            text-decoration: none;
-            transform: translateX(5px);
-        }
-        
-        .address-box {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            box-shadow: inset 0 0 0 1px rgba(12, 12, 60, 0.1);
-            line-height: 1.7;
-            font-size: 1.1rem;
-            position: relative;
-            border-left: 3px solid var(--plasma-purple);
-        }
-        
-        .address-box::before {
-            content: "📍";
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-        }
-        
-        .map-preview {
-            margin-top: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 180px;
-            background: #f0f0f0;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .map-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%);
-            transition: all 0.3s;
-        }
-        
-        .map-preview:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-        
-        .map-overlay-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(12, 12, 60, 0.85);
-            color: white;
-            padding: 10px 15px;
-            font-size: 1rem;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        /* CORREÇÕES PARA RESPONSIVIDADE EM SMARTPHONE */
         @media (max-width: 768px) {
-            .right-image {
-                float: none;
-                display: block;
-                margin: 0 auto 1.5rem;
-                width: 80%;
+            .sponsorship-title {
+                font-size: 1.7rem;
             }
 
-            .stats-grid {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .sponsor-logos {
-                gap: 1rem;
-            }
-
-            .sponsor-item {
-                width: 150px;
-            }
-
-            /* Responsividade para seção de doação */
-            .donation-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .pix-info {
-                text-align: center;
-                max-width: 100%;
-            }
-
-            .donation-stats {
-                flex-wrap: wrap;
-            }
-
-            .donation-section {
-                padding: 1.5rem;
-            }
-
-            .map-container {
-                max-width: 100%;
-            }
-
-            .map-iframe {
-                height: 250px;
-            }
-
-            /* Ajustes para o foguete em dispositivos móveis */
-            .rocket {
-                font-size: 36px;
-            }
-
-            /* Ajustes adicionais para o cabeçalho */
-            .nasa-header {
-                min-height: 200px;
-                padding: 1rem;
-            }
-            
-            .nasa-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .nasa-header h2 {
-                font-size: 1.1rem;
-                padding: 0 1rem;
-            }
-            
-            /* Ajustes para contato */
-            .contact-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-icon {
-                margin: 0 auto 20px;
-            }
-            
-            .contact-details {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-title {
-                font-size: 1.5rem;
-            }
-            
-            .contact-subtitle {
-                font-size: 1rem;
-            }
-            
-            /* Instruções do foguete */
-            .instructions, .science-note {
-                display: none;
-            }
-            
-            /* Rodapé ajustado */
-            .page-footer p {
-                padding: 0 1rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container-lg {
-                padding: 1rem;
-            }
-            
-            .map-iframe {
-                height: 200px;
-            }
-            
-            .nasa-header h1 {
+            .sponsorship-overlay h3 {
                 font-size: 1.3rem;
             }
-            
-            .nasa-header h2 {
+
+            .sponsorship-cta {
                 font-size: 1rem;
-            }
-            
-            /* Ajustes para o rodapé */
-            .page-footer p {
-                font-size: 0.8rem;
-                line-height: 1.4;
-            }
-            
-            /* Estatísticas ajustadas */
-            .stat-number {
-                font-size: 1.8rem;
-            }
-            
-            /* Formulário de contato */
-            .contact-form {
-                padding: 1rem;
-            }
-            
-            /* Pix ajustado */
-            .pix-qr {
-                width: 180px;
-                height: 180px;
-            }
-        }
-
-        /* MELHORIAS PARA O RODAPÉ */
-        .footer-info {
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .footer-highlight {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .footer-info {
-                padding: 0 10px;
             }
         }
     </style>
@@ -1194,7 +867,7 @@
 
         <img src="https://i.imgur.com/RzTL3GW.png" alt="NASA Space Apps Logo" class="logo-img">
         <h1>NASA SPACE APPS CHALLENGE SC PALMEIRAS</h1>
-        <h2>The World's Largest Global Hackathon - Now in Santa Cruz das Palmeiras</h2>
+        <h2>The World's Largest Global Hackathon - Now in Santa</h2>
 
         <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete</div>
         <div class="science-note">Propulsão realista: jato de plasma no vácuo espacial</div>
@@ -1250,6 +923,9 @@
         </ol>
 
         <!-- Seção de Patrocinadores -->
+        <!-- ... (o restante do corpo permanece igual até a seção de patrocinadores) ... -->
+
+        <!-- Substitua a seção de patrocinadores original por esta nova -->
         <div class="sponsorship-section">
             <h2 class="sponsorship-title">Sponsorship - Plans</h2>
             <div class="sponsorship-plans">
@@ -1350,16 +1026,10 @@
             <li><a href="https://www.spaceappschallenge.org/resources/-faq/">Frequently Asked Questions</a></li>
         </ul>
 
-        <!-- Seção destacada de financiamento CORRIGIDA -->
-        <div class="funding-highlight">
-            <i class="fas fa-hand-holding-usd funding-decoration"></i>
-            <div class="funding-highlight-content">
-                <p><strong>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton, Mindgrub, and SecondMuse.</strong></p>
-                <div class="funding-logos">
-                    
-                </div>
-            </div>
-        </div>
+        <ul>
+            <li>NASA Space Apps is funded by NASA's Earth Science Division through a contract with Booz Allen Hamilton,
+                Mindgrub, and SecondMuse.</li>    
+        </ul>
 
         <h2 id="contact">Contact Us</h2>
         <p>Have questions about NASA Space Apps? <a href="mailto:spaceappschallenge@nasa.gov">Email our team</a> or
@@ -1393,55 +1063,22 @@
             <div class="contact-info">
                 <p>For more information, visit <a href="https://www.spaceappschallenge.org">spaceappschallenge.org</a>
                 </p>
-                
-                <!-- Nova seção de contato melhorada -->
-                <div class="contact-card">
-                    <div class="contact-header">
-                        <div class="contact-icon">
-                            <i class="fas fa-user-astronaut"></i>
-                        </div>
-                        <div>
-                            <h3 class="contact-title">Luis Claudio De Vita</h3>
-                            <p class="contact-subtitle">Local Lead - NASA Space Apps Santa Cruz das Palmeiras</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-item-title">
-                                <i class="fas fa-envelope"></i>
-                                <span>Email</span>
-                            </div>
-                            <div class="contact-info">
-                                <a href="mailto:nasaspaceapps.scpalmeiras@gmail.com" class="contact-email">
-                                    nasaspaceapps.scpalmeiras@gmail.com
-                                </a>
-                                <p>Entre em contato para mais informações sobre o evento.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-item-title">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Local do Evento</span>
-                            </div>
-                            <div class="contact-info">
-                                <div class="address-box">
-                                    Escola Comunitária/Anglo<br>
-                                    Av. Constantino Stoco, 550 - Santa Cecília<br>
-                                    Santa Cruz das Palmeiras - SP<br>
-                                    13650-000
-                                </div>
-                                
-                                <div class="map-preview">
-                                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Escola+Comunitária/Anglo+Santa+Cruz+Das+Palmeiras,Santa+Cruz+das+Palmeiras,SP&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C-21.8226454,-47.2547098&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" alt="Mapa do Local">
-                                    <div class="map-overlay-text">Escola Comunitária/Anglo - Santa Cruz das Palmeiras</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                <p>Contact your Local Lead, Luis Claudio De Vita:</p>
+                <ul>
+                    <li>Email: <a
+                            href="mailto:nasaspaceapps.scpalmeiras@gmail.com">nasaspaceapps.scpalmeiras@gmail.com</a>
+                    </li>
+                    <li>
+                        Event location:
+                        <a href="#" class="address-link">
+                            Escola Comunitária/anglo<br>
+                            Av. Constantino Stoco, 550 - Santa Cecília<br>
+                            Santa Cruz das Palmeiras - SP<br>
+                            13650-000
+                        </a>
+                    </li>
+                </ul>
+
                 <!-- Seção do Mapa Google -->
                 <div class="map-container">
                     <iframe
@@ -1467,13 +1104,8 @@
     <!-- Blue Footer -->
     <footer class="page-footer">
         <div class="footer-content">
-            <div class="footer-info">
-                <p>© 2025 NASA Space Apps Challenge - Santa Cruz das Palmeiras. Todos os direitos reservados.</p>
-                <div class="footer-highlight">
-                    Evento realizado em Santa Cruz das Palmeiras - SP, Brasil<br>
-                    Local: Escola Comunitária/Anglo - Av. Constantino Stoco, 550
-                </div>
-            </div>
+            <p>© 2025 NASA Space Apps Challenge - Santa Cruz das Palmeiras. Todos os direitos reservados.</p>
+            <p>Evento realizado em Santa Cruz das Palmeiras - SP, Brasil</p>
         </div>
     </footer>
 

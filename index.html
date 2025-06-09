@@ -641,66 +641,6 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .right-image {
-                float: none;
-                display: block;
-                margin: 0 auto 1.5rem;
-                width: 80%;
-            }
-
-            .stats-grid {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .sponsor-logos {
-                gap: 1rem;
-            }
-
-            .sponsor-item {
-                width: 150px;
-            }
-
-            /* Responsividade para seção de doação */
-            .donation-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .pix-info {
-                text-align: center;
-                max-width: 100%;
-            }
-
-            .donation-stats {
-                flex-wrap: wrap;
-            }
-
-            .donation-section {
-                padding: 1.5rem;
-            }
-
-            .map-container {
-                max-width: 100%;
-            }
-
-            .map-iframe {
-                height: 250px;
-            }
-
-            /* Ajustes para o foguete em dispositivos móveis */
-            .rocket {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .map-iframe {
-                height: 200px;
-            }
-        }
-
         /* Instruções para o usuário */
         .instructions {
             position: absolute;
@@ -838,20 +778,6 @@
             font-size: 1.1rem;
         }
 
-        @media (max-width: 768px) {
-            .sponsorship-title {
-                font-size: 1.7rem;
-            }
-
-            .sponsorship-overlay h3 {
-                font-size: 1.3rem;
-            }
-
-            .sponsorship-cta {
-                font-size: 1rem;
-            }
-        }
-
         /* CORREÇÃO PARA A SEÇÃO DE DESTAQUE */
         .funding-highlight {
             background: linear-gradient(135deg, #0c0c3c, #1a3a8f);
@@ -911,20 +837,6 @@
             opacity: 0.2;
             transform: rotate(15deg);
             color: white;
-        }
-
-        @media (max-width: 768px) {
-            .funding-highlight {
-                padding: 20px;
-            }
-            
-            .funding-logos {
-                gap: 20px;
-            }
-            
-            .funding-logo {
-                height: 30px;
-            }
         }
 
         /* ESTILOS PARA A NOVA SEÇÃO DE CONTATO */
@@ -1104,8 +1016,77 @@
             text-align: center;
             font-weight: 500;
         }
-        
+
+        /* CORREÇÕES PARA RESPONSIVIDADE EM SMARTPHONE */
         @media (max-width: 768px) {
+            .right-image {
+                float: none;
+                display: block;
+                margin: 0 auto 1.5rem;
+                width: 80%;
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .sponsor-logos {
+                gap: 1rem;
+            }
+
+            .sponsor-item {
+                width: 150px;
+            }
+
+            /* Responsividade para seção de doação */
+            .donation-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .pix-info {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .donation-stats {
+                flex-wrap: wrap;
+            }
+
+            .donation-section {
+                padding: 1.5rem;
+            }
+
+            .map-container {
+                max-width: 100%;
+            }
+
+            .map-iframe {
+                height: 250px;
+            }
+
+            /* Ajustes para o foguete em dispositivos móveis */
+            .rocket {
+                font-size: 36px;
+            }
+
+            /* Ajustes adicionais para o cabeçalho */
+            .nasa-header {
+                min-height: 200px;
+                padding: 1rem;
+            }
+            
+            .nasa-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .nasa-header h2 {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            /* Ajustes para contato */
             .contact-header {
                 flex-direction: column;
                 text-align: center;
@@ -1126,6 +1107,78 @@
             .contact-subtitle {
                 font-size: 1rem;
             }
+            
+            /* Instruções do foguete */
+            .instructions, .science-note {
+                display: none;
+            }
+            
+            /* Rodapé ajustado */
+            .page-footer p {
+                padding: 0 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-lg {
+                padding: 1rem;
+            }
+            
+            .map-iframe {
+                height: 200px;
+            }
+            
+            .nasa-header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .nasa-header h2 {
+                font-size: 1rem;
+            }
+            
+            /* Ajustes para o rodapé */
+            .page-footer p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            /* Estatísticas ajustadas */
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            /* Formulário de contato */
+            .contact-form {
+                padding: 1rem;
+            }
+            
+            /* Pix ajustado */
+            .pix-qr {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* MELHORIAS PARA O RODAPÉ */
+        .footer-info {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .footer-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .footer-info {
+                padding: 0 10px;
+            }
         }
     </style>
 </head>
@@ -1141,7 +1194,7 @@
 
         <img src="https://i.imgur.com/RzTL3GW.png" alt="NASA Space Apps Logo" class="logo-img">
         <h1>NASA SPACE APPS CHALLENGE SC PALMEIRAS</h1>
-        <h2>The World's Largest Global Hackathon - Now in Santa</h2>
+        <h2>The World's Largest Global Hackathon - Now in Santa Cruz das Palmeiras</h2>
 
         <div class="instructions" id="instructions">Mova o mouse para pilotar o foguete</div>
         <div class="science-note">Propulsão realista: jato de plasma no vácuo espacial</div>
@@ -1374,13 +1427,15 @@
                             </div>
                             <div class="contact-info">
                                 <div class="address-box">
-                                    Escola Comunitária/anglo<br>
+                                    Escola Comunitária/Anglo<br>
                                     Av. Constantino Stoco, 550 - Santa Cecília<br>
                                     Santa Cruz das Palmeiras - SP<br>
                                     13650-000
                                 </div>
                                 
-                                
+                                <div class="map-preview">
+                                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Escola+Comunitária/Anglo+Santa+Cruz+Das+Palmeiras,Santa+Cruz+das+Palmeiras,SP&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C-21.8226454,-47.2547098&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" alt="Mapa do Local">
+                                    <div class="map-overlay-text">Escola Comunitária/Anglo - Santa Cruz das Palmeiras</div>
                                 </div>
                             </div>
                         </div>
@@ -1412,8 +1467,13 @@
     <!-- Blue Footer -->
     <footer class="page-footer">
         <div class="footer-content">
-            <p>© 2025 NASA Space Apps Challenge - Santa Cruz das Palmeiras. Todos os direitos reservados.</p>
-            <p>Evento realizado em Santa Cruz das Palmeiras - SP, Brasil</p>
+            <div class="footer-info">
+                <p>© 2025 NASA Space Apps Challenge - Santa Cruz das Palmeiras. Todos os direitos reservados.</p>
+                <div class="footer-highlight">
+                    Evento realizado em Santa Cruz das Palmeiras - SP, Brasil<br>
+                    Local: Escola Comunitária/Anglo - Av. Constantino Stoco, 550
+                </div>
+            </div>
         </div>
     </footer>
 

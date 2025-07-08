@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Space Apps Challenge - Patrocinadores</title>
+    <title>NASA Space Apps Challenge - Foguete Espacial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -14,19 +15,14 @@
             --map-blue: #2a5b8c;
             --plasma-blue: #00aaff;
             --plasma-purple: #7700ff;
-            --lovable-pink: #FF2D55;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             color: #333;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
             background-color: white;
             display: flex;
             flex-direction: column;
@@ -63,7 +59,9 @@
             position: absolute;
             font-size: 48px;
             z-index: 3;
+            /* Garante que fique acima das partículas */
             opacity: 0.9;
+            /* Visível por padrão */
             transform: translate(-50%, -50%) rotate(0deg);
             pointer-events: none;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
@@ -109,6 +107,7 @@
         .particles {
             position: absolute;
             z-index: 1;
+            /* Abaixo do foguete */
             pointer-events: none;
         }
 
@@ -189,7 +188,9 @@
             z-index: 2;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--nasa-blue);
         }
 
@@ -943,101 +944,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* ESTILOS ESPECÍFICOS PARA O PATROCINADOR LOVABLE */
-        .lovable-special {
-            position: relative;
-            overflow: hidden;
-            padding: 30px;
-            background: linear-gradient(135deg, #FF2D55, #FF5C7F);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 rgba(255, 45, 85, 0.4);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(255, 45, 85, 0.8);
-            }
-        }
-
-        .announcement-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .event-details {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid white;
-        }
-
-        .event-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .event-subtitle {
-            font-size: 1.1rem;
-            color: #FFE6EB;
-            margin-bottom: 15px;
-        }
-
-        .register-button {
-            display: inline-block;
-            background: white;
-            color: var(--lovable-pink);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 2px solid transparent;
-            font-size: 1.1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .register-button:hover {
-            background: #f0f0f0;
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            border-color: var(--lovable-pink);
-            animation: none;
-        }
-
-        .event-date {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            margin-top: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
         /* Ajustes para dispositivos móveis */
         @media (max-width: 768px) {
             .sponsors-grid {
@@ -1052,17 +958,9 @@
             .sponsors-title {
                 font-size: 1.8rem;
             }
-            
-            .announcement-text {
-                font-size: 1.5rem;
-            }
-            
-            .event-title {
-                font-size: 1.2rem;
-            }
         }
 
-        /* NOVA SEÇÃO DO LOCAL LEAD */
+        /* NOVOS ESTILOS PARA SEÇÃO DO LOCAL LEAD */
         .local-lead-section {
             background: linear-gradient(135deg, #f8f9fa, #eef2f6);
             border-radius: 12px;
@@ -1297,26 +1195,13 @@
             </div>
         </div>
 
-        <!-- NOVA SEÇÃO DE PATROCINADORES MODIFICADA -->
+        <!-- NOVA SEÇÃO DE PATROCINADORES -->
         <div class="sponsors-section">
             <h2 class="sponsors-title">Nossos Patrocinadores</h2>
             <div class="sponsors-grid">
-                <!-- Card Especial para Lovable -->
-                <div class="sponsor-card lovable-special">
-                    <div class="announcement-text">We're thrilled to announce that</div>
+                <div class="sponsor-card">
                     <img src="https://i.imgur.com/Mhpol2i.png" alt="Lovable" class="sponsor-logo">
-                    
-                    <div class="event-details">
-                        <div class="event-title">Come Build something lovable</div>
-                        <div class="event-subtitle">Register for the NASA Space Apps Challenge</div>
-                        
-                        <a href="https://www.spaceappschallenge.org/register" class="register-button" target="_blank">
-                            <i class="fas fa-rocket"></i> Register Now
-                        </a>
-                        
-                        <div class="event-date">July 17th</div>
-                    </div>
-                    
+                    <h3 class="sponsor-name">Lovable</h3>
                     <p class="sponsor-description">Soluções tecnológicas inovadoras para criar experiências digitais memoráveis e impactantes.</p>
                     <a href="https://lovable.dev/" target="_blank" class="sponsor-link">Visite o Site</a>
                 </div>
@@ -1821,4 +1706,5 @@
         });
     </script>
 </body>
+
 </html>
